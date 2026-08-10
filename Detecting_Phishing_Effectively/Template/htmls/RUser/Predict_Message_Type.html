@@ -1,0 +1,256 @@
+{% extends 'RUser/Header.html' %}
+
+{% block userblock %}
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Lobster&family=Righteous&family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+/* General Body Styling */
+body {
+    background: linear-gradient(to right, #f8f9fa, #e0e7ff); /* Gradient background */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #444; /* Dark Gray */
+}
+
+/* Container Styling */
+.container-fluid {
+    padding: 50px 15px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95); /* Semi-Transparent White */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Light Semi-Transparent Black */
+}
+
+/* Title Styling */
+#title {
+    font-family: 'Lobster', cursive;
+    font-size: 32px;
+    color: #1e3a8a; /* Deep Blue */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+/* Section Headers */
+.text-uppercase {
+    font-family: 'Righteous', sans-serif;
+    font-size: 20px;
+    color: #1e3a8a; /* Deep Teal */
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Input Labels and Buttons */
+.style1 {
+    color: #1e3a8a; /* Deep Gray-Blue */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.style4 {
+    color: #1e3a8a; /* Burnt Orange */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.style6 {
+    font-size: 20px;
+    color: #8e44ad; /* Deep Purple */
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 100%;
+    height: 140px;
+    border: 1px solid #bdc3c7; /* Light Gray */
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #f8f9fa; /* Light Background */
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #16a085; /* Deep Teal on Focus */
+    outline: none;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color: #344CB7; /* Teal */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color:#1e3a8a; /* Lighter Teal on Hover */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-spacing: 0;
+}
+
+table td {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+table td.bg-red {
+    background-color: #e74c3c; /* Vibrant Red */
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+table td.bg-white {
+    background-color: #ffffff; /* Clean White */
+    font-size: 16px;
+}
+
+/* Horizontal Rule Styling */
+hr {
+    border-top: 1px solid #dcdcdc; /* Soft Gray Line */
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    #title {
+        font-size: 24px;
+    }
+
+    .text-uppercase {
+        font-size: 18px;
+    }
+
+    textarea {
+        font-size: 14px;
+        height: 100px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    #title {
+        font-size: 20px;
+    }
+
+    .style1, .style4, .style6 {
+        font-size: 16px;
+    }
+
+    textarea {
+        height: 80px;
+        font-size: 12px;
+    }
+}
+
+/* Navigation Bar Styling */
+nav {
+    background: linear-gradient(to right, #344CB7, #60a5fa); /* Medium Blue to Light Blue */
+    padding: 10px 0;
+}
+
+nav a {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #93c5fd; /* Very Light Blue */
+    color: #1e3a8a; /* Deep Blue */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1e3a8a; /* Deep Blue */
+    color: #f3f4f6; /* Light Gray */
+    text-align: center;
+    padding: 20px 0;
+}
+
+</style>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <!-- Prediction Form -->
+                <form role="form" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <p class="text-uppercase style1">PREDICTION OF MESSAGE TYPE!!!</p>
+                        <hr>
+                        <table>
+                            <tr>
+                                <td class=""><span class="style4">Enter Message Here</span></td>
+                                <td><textarea name="message" placeholder="Type your message here..."></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input name="submit" type="submit" class="style1" value="Predict">
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </form>
+
+                <!-- Predicted Message Type -->
+                <form role="form" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <hr>
+                        <table>
+                            <tr>
+                                <td class=""><span class="style6">Predicted Message Type</span>:</td>
+                                <td class="bg-white"><span class="style6">{{ objs }}</span></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="col-md-2">
+                <!-- Placeholder for future content or empty space -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

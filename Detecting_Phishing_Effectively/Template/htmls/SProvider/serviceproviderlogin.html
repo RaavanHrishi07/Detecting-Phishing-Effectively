@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Righteous&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        body {
+            background-image: url('{% static "Banner.jpg" %}');
+            background-size: cover; /* Ensures the image covers the entire viewport */
+            background-attachment: fixed; /* Keeps the image fixed during scrolling */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container-fluid {
+            padding: 50px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 38px;
+             font-weight: 700;
+            color: #1e3a8a;
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+
+        .style2 {
+            font-family: 'Poppins', sans-serif;
+            color: #2575FC;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2575FC;
+            background-color: #f0f8ff;
+        }
+
+        .btn {
+            background-color: #2575FC;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #6A11CB;
+            color: #fff;
+        }
+
+        .btn-lg {
+            background-color: transparent;
+            border: 2px solid #2575FC;
+            color: #2575FC;
+            font-size: 18px;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lg:hover {
+            background-color: #2575FC;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav a {
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        hr {
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <h2 id="title">Detecting Phishing Effectively: A Stable and Adaptable Mechanism</h2>
+            <hr>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form method="POST" role="form">
+                        {% csrf_token %}
+                        <p class="style2">Login Service Provider:</p>
+
+                        <div class="form-group">
+                            <input type="text" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div>
+                            <input type="submit" name="submit1" class="btn btn-md" value="Login">
+                        </div>
+                    </form>
+                    <br>
+                    <button class="btn btn-lg"><a href="{% url 'login' %}">User Login</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

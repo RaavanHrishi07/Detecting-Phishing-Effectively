@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Provider</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url("{% static 'bg.jpg' %}");
+            background-size: cover;
+                        font-family: 'Poppins', sans-serif;
+
+            background-color: #f8f9fa; /* Very Light Gray */
+        }
+
+        h1 {
+
+            color: #1e3a8a; /* Deep Blue */
+            text-align: center;
+            font-size: 36px;
+            margin: 30px 0;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        .topnav {
+            overflow: hidden;
+            background: linear-gradient(135deg, #344CB7, #60a5fa); /* Medium Blue to Light Blue */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Header Shadow */
+        }
+
+        .topnav a {
+            float: left;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .topnav a:hover {
+            background-color: #93c5fd; /* Very Light Blue */
+            color: #1e3a8a; /* Deep Blue */
+        }
+
+        .topnav a.active {
+            background-color: #8e4fd1; /* Purple for active link */
+            color: white;
+        }
+
+        .mainholder {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95); /* Semi-Transparent White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Content Shadow */
+        }
+
+        .style1 {
+            color: #344CB7; /* Red for emphasized text */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px; /* Smaller font size on mobile */
+            }
+
+            .topnav a {
+                font-size: 14px; /* Smaller font size for navigation */
+                padding: 12px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="style1">Detecting Phishing Effectively: A Stable and Adaptable Mechanism</h1>
+
+    <div class="topnav">
+        <a href="{% url 'train_model' %}">Train & Test Message Data Sets</a>
+        <a href="{% url 'likeschart' 'bar' %}">View Trained and Tested Accuracy in Bar Chart</a>
+        <a href="{% url 'charts1' 'line' %}">View Trained and Tested Accuracy Results</a>
+        <a href="{% url 'View_Prediction_Of_Message_Type' %}">View Prediction Of Message Type</a>
+        <a href="{% url 'View_Message_Type_Ratio' %}">View Message Type Ratio</a>
+        <a href="{% url 'Download_Predicted_DataSets' %}">Download Predicted Data Sets</a>
+        <a href="{% url 'charts' 'line' %}">View Message Type Ratio Results</a>
+        <a href="{% url 'View_Remote_Users' %}">View All Remote Users</a>
+        <a href="{% url 'index' %}">Logout</a>
+    </div>
+
+    <div class="mainholder">
+        {% block researchblock %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

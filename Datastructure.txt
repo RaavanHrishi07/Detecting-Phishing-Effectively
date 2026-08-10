@@ -1,0 +1,30 @@
+
+A Robust Approach for Effective Spam Detection Using Supervised Learning Techniques
+
+Spam detection, supervised learning, regional spam, Monte Carlo approach,deep learning, convolutional neural networks, SMS spam, TF-IDF vectorization
+
+
+
+IEEE Transaction on Machine Learning,Issue Date:05-Jul-2022
+
+
+
+
+A_Robust_Approach_for_Effective_Spam_Detection
+
+
+a_robust_approach_for_effective_spam_detection
+
+
+
+
+
+
+spam_detection
+
+
+Message
+Prediction
+
+
+varchar(300) NOT NULL,

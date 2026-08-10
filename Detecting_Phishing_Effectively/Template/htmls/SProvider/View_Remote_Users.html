@@ -1,0 +1,211 @@
+{% extends 'SProvider/Header.html' %}
+
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+    /* Global Styling */
+    body {
+                    font-family: 'Poppins', sans-serif;
+
+        background: linear-gradient(180deg, #f8f9fa, #e0e7ff); /* Very Light Gray to Lavender Blue gradient */
+        color: #444; /* Dark Gray for body text */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Main container styling */
+    .container-fluid {
+        padding: 50px;
+        background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Light shadow for content */
+        margin-top: 20px;
+    }
+
+    .container {
+        padding: 40px;
+               background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Gradient from deep blue to bright blue */
+        background-color: #ffffff; /* White background */
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Title styling */
+    #title {
+                    font-family: 'Poppins', sans-serif;
+
+        font-size: 28px;
+        color: #1e3a8a; /* Deep Blue for titles */
+        text-align: center;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    /* Text uppercase and highlighted styling */
+    .text-uppercase {
+                    font-family: 'Poppins', sans-serif;
+
+        font-size: 28px;
+        color: #1e3a8a; /* Deep Blue for text */
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+
+    /* Styling for emphasized text */
+    .style4 {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #ddd; /* Light border */
+                    font-family: 'Poppins', sans-serif;
+
+    }
+
+    th {
+        background-color: #1e3a8a; /* Bright Blue background for headers */
+        color: white;
+        font-weight: 600;
+    }
+
+    td {
+        background-color: #ecf0f1; /* Light gray background for table rows */
+    }
+
+    td span {
+        color: #2c3e50; /* Dark text for content */
+    }
+
+    /* Form input styling */
+    input {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        padding: 12px;
+        border: 2px solid #3b82f6; /* Bright Blue border for inputs */
+        border-radius: 8px;
+        width: 100%;
+        margin-bottom: 20px;
+        background-color: #f4f6f7; /* Light background for inputs */
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+        border-color: #e74c3c; /* Red border on focus */
+        outline: none;
+    }
+
+    /* Navigation Bar Styling */
+    nav {
+        background: linear-gradient(90deg, #2563eb, #60a5fa); /* Medium to Light Blue gradient */
+        padding: 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    nav a:hover {
+        background-color: #93c5fd; /* Very Light Blue for hover */
+        color: #1e3a8a; /* Deep Blue for text on hover */
+    }
+
+    /* Footer Styling */
+    footer {
+        background-color: #1e3a8a; /* Deep Blue */
+        color: #f3f4f6; /* Light Gray for footer text */
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 25px;
+        }
+
+        #title {
+            font-size: 28px;
+        }
+
+        .text-uppercase {
+            font-size: 22px;
+        }
+
+        table {
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <p class="text-uppercase style4">VIEW ALL REMOTE USERS</p>
+                            <div class="viewclients">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>USER NAME</th>
+                                            <th>EMAIL</th>
+                                            <th>GENDER</th>
+                                            <th>ADDRESS</th>
+                                            <th>MOB NO</th>
+                                            <th>COUNTRY</th>
+                                            <th>STATE</th>
+                                            <th>CITY</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for o in objects %}
+                                        <tr>
+                                            <td><span class="style1">{{ o.username }}</span></td>
+                                            <td><span class="style1">{{ o.email }}</span></td>
+                                            <td><span class="style1">{{ o.gender }}</span></td>
+                                            <td><span class="style1">{{ o.address }}</span></td>
+                                            <td><span class="style1">{{ o.phoneno }}</span></td>
+                                            <td><span class="style1">{{ o.country }}</span></td>
+                                            <td><span class="style1">{{ o.state }}</span></td>
+                                            <td><span class="style1">{{ o.city }}</span></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Login</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="stylesheet"  type="text/css" href="{% static 'style.css'%} "  />
+<link rel="stylesheet"   type="text/css" href="{% static 'coin-slider.css'%}" />
+
+<script type="text/javascript" src="{% static 'cufon-yui.js'%} "></script>
+<script type="text/javascript" src="{% static 'cufon-aller.js'%}"></script>
+<script type="text/javascript" src="{% static 'jquery-1.4.2.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'script.js'%}"></script>
+<script type="text/javascript" src="{% static 'coin-slider.min.js'%}"></script>
+<style type="text/css">
+body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(120deg, #f8f9fa, #e0e7ff);
+            overflow-x: hidden;
+        }
+
+        header {
+           background: #fff;
+            color: #1e3a8a;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+       color: #1e3a8a;
+            font-size: 38px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            background: linear-gradient(90deg, #344CB7, #60a5fa);
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #93c5fd;
+            color: #1e3a8a;
+        }
+
+.main {
+    max-width: 1200px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95); /* Semi-Transparent White */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light semi-transparent black */
+    overflow: hidden;
+}
+
+
+.menu_nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background: linear-gradient(to right, #344CB7, #60a5fa); /* Navigation bar gradient */
+}
+
+.menu_nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu_nav a:hover {
+    background-color: #93c5fd; /* Navigation hover background */
+    color: #1e3a8a; /* Deep Blue for hover text */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+img.fl {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Banner shadow */
+}
+
+.content h2 {
+    text-align: center;
+    color: #1e3a8a; /* Deep Blue for titles */
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+
+
+form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Light semi-transparent black */
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #1e3a8a; /* Deep Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background: #3b82f6; /* Bright Blue */
+}
+
+form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: 2px solid #1e3a8a; /* Deep Blue */
+    color: #1e3a8a;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form button:hover {
+    background: #1e3a8a; /* Deep Blue */
+    color: white;
+}
+
+.footer {
+    background: #1e3a8a; /* Deep Blue */
+    color: #f3f4f6; /* Light Gray */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+.footer a {
+    color: #60a5fa; /* Light Blue */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 5px;
+    }
+
+    .menu_nav a {
+        font-size: 0.9rem;
+    }
+ nav a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="submit"],
+    form button {
+        font-size: 0.9rem;
+    }
+}
+
+</style>
+</head>
+<body>
+<header>
+    <h1>Detecting Phishing Effectively A Stable and Adaptable Mechanism</h1>
+</header>
+
+<nav>
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'login' %}">Remote User</a>
+    <a href="{% url 'serviceproviderlogin' %}">Service Provider</a>
+</nav>
+</div>
+
+        <img src="{% static 'Banner.jpg'%}" width="1297" height="355" alt="" class="fl" />      </div>
+      <div class="clr"></div>
+      <div class="slider">
+
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <div class="img">
+            <div align="center"><form method="POST" role="form">
+							{% csrf_token %}
+
+						<fieldset>
+                             {% load static %}
+
+							<p class="style5"> Login Using Your Account: </p>
+
+						<div class="form-group">
+								<input type="text" name="username"   placeholder="User Name" required>
+
+								<br />
+						      <br />
+						</div>
+						<div class="form-group">
+								<input type="password" name="password"   placeholder="Password" required>
+							</div>
+							<div>
+							  <p>
+								  <input type="submit" name="submit1"  class="btn btn-md" value="Login">
+								  <br />
+							    </p>
+							</div>
+							<div>
+
+							<button>
+							<span class="style16"><strong>Are You New User !!</strong></span><span class="style20">! </span><a href="{% url 'Register1' %}">REGISTER</a></button>
+
+							</div>
+ 						</fieldset>
+				</form></div>
+          </div>
+
+            <div class="mainbar">
+
+
+        <div class="tab-content tab-space">
+            <div class="tab-pane active" id="preview-alerts">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script><link href="https://unpkg.com/soft-ui-design-system@1.0.1/assets/css/soft-design-system.min.css" rel="stylesheet" /><div class="container py-5">
+  <div class="row">
+
+</div>
+          <div class="post_content"></div>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="searchform"></div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg"></div>
+</div>
+<div align=center></div>
+              <div class="footer"> </div>
+
+</body>
+</html>

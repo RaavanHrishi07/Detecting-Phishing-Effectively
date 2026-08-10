@@ -1,0 +1,191 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+    /* General Styling */
+    body {
+        background: linear-gradient(to bottom, #f8f9fa, #e0e7ff); /* Gradient background */
+        font-family: 'Poppins', sans-serif;
+        color: #444; /* Dark Gray for general text */
+    }
+
+    .container-fluid {
+        padding: 50px;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.95); /* Semi-Transparent White */
+        padding: 50px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px; /* Light shadow for the content */
+    }
+
+    #title {
+        font-family: 'Fredoka One', cursive;
+        color: #1e3a8a; /* Deep Blue for titles */
+    }
+
+    .text-uppercase {
+        font-family: 'Righteous', cursive;
+        text-transform: uppercase;
+        color: #1e3a8a; /* Deep Blue for headings */
+    }
+
+    .style1 {
+        color:#1e3a8a;;
+        font-weight: bold;
+    }
+
+    .style4 {
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    .style6 {
+        color: #fff0f5;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    /* Header and Navigation Styles */
+    header {
+        background: linear-gradient(to right, #1e3a8a, #3b82f6); /* Deep Blue to Bright Blue gradient */
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px; /* Semi-transparent black shadow */
+    }
+
+    nav {
+        background: linear-gradient(to right, #2563eb, #60a5fa); /* Medium Blue to Light Blue */
+        font-family: 'Poppins', sans-serif;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        display: inline-block;
+    }
+
+    nav a:hover {
+        background: #93c5fd; /* Very Light Blue */
+        color: #1e3a8a; /* Deep Blue text on hover */
+    }
+
+    /* Footer Styles */
+    footer {
+        background: #1e3a8a; /* Deep Blue */
+        color: #f3f4f6; /* Light Gray for footer text */
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Table Styling */
+    table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    table td.table-heading {
+        background-color: #1e3a8a; /* Deep Blue for table headings */
+        color: #fff;
+        font-weight: bold;
+    }
+
+    table td.table-info {
+        background-color: #60a5fa; /* Light Blue for info cells */
+        color: #1e3a8a;
+        font-style: italic;
+    }
+
+    table td.table-secondary {
+        background-color: #93c5fd; /* Very Light Blue for secondary cells */
+        color: #1e3a8a;
+    }
+
+    /* Responsiveness Adjustments */
+    @media (max-width: 768px) {
+        .text-uppercase {
+            font-size: 20px;
+        }
+
+        .style6 {
+            font-size: 14px;
+        }
+
+        .style4 {
+            font-size: 14px;
+        }
+
+        nav a {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <p class="text-uppercase pull-center style1">YOUR PROFILE DETAILS !!!</p>
+                            <hr>
+                            <div class="form-group">
+                                <p>&nbsp;</p>
+                            </div>
+
+                            <div class="form-group">
+                                <table width="879" border="0" align="center">
+                                    <tr>
+                                        <td width="148" height="34" class="table-heading"><span class="style4">Username</span></td>
+                                        <td width="225" class="table-info"><span class="style6">{{object.username}}</span></td>
+                                        <td width="157" class="table-heading"><span class="style4">Email Id</span></td>
+                                        <td width="321" class="table-info"><span class="style6">{{object.email}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="38" class="table-heading"><span class="style4">Mobile Number</span></td>
+                                        <td class="table-info"><span class="style6">{{object.phoneno}}</span></td>
+                                        <td class="table-heading"><span class="style4">Gender</span></td>
+                                        <td class="table-info"><span class="style6">{{object.gender}}</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td height="34" class="table-heading"><span class="style4">Address</span></td>
+                                        <td class="table-info"><span class="style6">{{object.address}}</span></td>
+                                        <td class="table-heading"><span class="style4">Country</span></td>
+                                        <td class="table-info"><span class="style6">{{object.country}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="32" class="table-heading"><span class="style4">State</span></td>
+                                        <td class="table-info"><span class="style6">{{object.state}}</span></td>
+                                        <td class="table-heading"><span class="style4">City</span></td>
+                                        <td class="table-info"><span class="style6">{{object.city}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- null -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
