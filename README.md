@@ -1,134 +1,170 @@
-\# Detecting Phishing Effectively: A Stable and Adaptable Mechanism
-
-
+# Detecting Phishing Effectively: A Stable and Adaptable Mechanism
 
 A machine learning-based web application designed to efficiently detect and classify potentially phishing or malicious messages. The system provides a web-based interface for message analysis and prediction, along with data management and result visualisation.
 
-
-
-\## 📌 Project Overview
-
-
+## 📌 Project Overview
 
 Phishing is one of the most common forms of cybercrime, where attackers attempt to deceive users into revealing sensitive information through fraudulent messages and links.
 
-
-
 This project focuses on developing a stable and adaptable mechanism for detecting phishing-related messages using machine learning techniques. The system provides a Django-based web interface through which users can submit messages for analysis and obtain prediction results.
 
+## 🎯 Objectives
 
+- Detect potentially phishing or malicious messages efficiently.
+- Provide a simple web-based interface for users.
+- Store and manage prediction-related data.
+- Provide prediction results through a user-friendly interface.
+- Support analysis and visualisation of collected results.
+- Develop a mechanism that can be adapted for future improvements in phishing detection.
 
-\## 🎯 Objectives
+## 🛠️ Technologies Used
 
+- Python
+- Django
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
+- CSV Dataset
+- Machine Learning
 
+## 📂 Project Structure
 
-\- Detect potentially phishing or malicious messages efficiently.
+- Database/
+  - Detecting_Phishing_Effectively.sql
+- Datastructure.txt
+- Detecting_Phishing_Effectively/
+  - Datasets.csv
+  - Results.csv
+  - manage.py
+  - Detecting_Phishing_Effectively/
+    - settings.py
+    - urls.py
+    - asgi.py
+    - wsgi.py
+  - Remote_User/
+    - models.py
+    - views.py
+    - forms.py
+    - migrations/
+  - Service_Provider/
+    - models.py
+    - views.py
+    - admin.py
+    - migrations/
+  - Template/
+    - htmls/
+    - images/
+- .gitignore
 
-\- Provide a simple web-based interface for users.
+## ⚙️ Main Features
 
-\- Store and manage prediction-related data.
+### 👤 Remote User
 
-\- Provide prediction results through a user-friendly interface.
+- User registration and login.
+- Submit messages for prediction.
+- Analyse submitted messages.
+- View prediction results.
+- View relevant information related to message classification.
 
-\- Support analysis and visualisation of collected results.
+### 👨‍💼 Service Provider
 
-\- Develop a mechanism that can be adapted for future improvements in phishing detection.
+- Service provider login.
+- Manage user-related information.
+- View remote user details.
+- View prediction-related information.
+- Analyse prediction results.
+- View graphical representations of collected data.
+- Manage system-related information.
 
+## 🗄️ Database
 
+The project uses MySQL for database management.
 
-\## 🛠️ Technologies Used
+The database export is included in:
 
+Database/Detecting_Phishing_Effectively.sql
 
+The SQL file can be imported into MySQL to recreate the required database structure.
 
-\- \*\*Python\*\*
+## 📊 Dataset
 
-\- \*\*Django\*\*
+The project contains the dataset used by the phishing detection system.
 
-\- \*\*MySQL\*\*
+Dataset:
 
-\- \*\*HTML5\*\*
+Detecting_Phishing_Effectively/Datasets.csv
 
-\- \*\*CSS3\*\*
+Prediction results:
 
-\- \*\*JavaScript\*\*
+Detecting_Phishing_Effectively/Results.csv
 
-\- \*\*CSV Dataset\*\*
+## 🚀 Installation and Setup
 
-\- \*\*Machine Learning\*\*
+### 1. Clone the repository
 
+git clone https://github.com/RaavanHrishi07/Detecting-Phishing-Effectively.git
 
+cd Detecting-Phishing-Effectively
 
-\## 📂 Project Structure
+### 2. Create a virtual environment
 
+python -m venv venv
 
+Activate the environment on Windows:
 
-```text
+venv\Scripts\activate
 
-Detecting-Phishing-Effectively/
+### 3. Install Django
 
-│
+pip install django
 
-├── Database/
+Additional dependencies may be required depending on the project environment.
 
-│   └── Detecting\_Phishing\_Effectively.sql
+### 4. Configure MySQL
 
-│
+Create the required MySQL database and import:
 
-├── Datastructure.txt
+Database/Detecting_Phishing_Effectively.sql
 
-│
+Then configure the database settings in:
 
-├── Detecting\_Phishing\_Effectively/
+Detecting_Phishing_Effectively/Detecting_Phishing_Effectively/settings.py
 
-│   ├── Datasets.csv
+### 5. Run migrations
 
-│   ├── Results.csv
+python manage.py migrate
 
-│   ├── manage.py
+### 6. Start the Django development server
 
-│   │
+python manage.py runserver
 
-│   ├── Detecting\_Phishing\_Effectively/
+Then open:
 
-│   │   ├── settings.py
+http://127.0.0.1:8000/
 
-│   │   ├── urls.py
+## 🔐 Security Note
 
-│   │   ├── asgi.py
+This repository is intended for academic and educational purposes.
 
-│   │   └── wsgi.py
+Sensitive credentials, passwords, API keys, and production secrets should not be committed to a public repository. Environment variables should be used when deploying the application in a production environment.
 
-│   │
+## 🔮 Future Scope
 
-│   ├── Remote\_User/
+- Improve detection accuracy using larger and more diverse datasets.
+- Support additional languages and message formats.
+- Integrate advanced machine learning and deep learning techniques.
+- Develop real-time phishing detection.
+- Extend the system for email and URL-based phishing detection.
+- Deploy the application as a cloud-based service.
+- Improve the user interface and reporting capabilities.
 
-│   │   ├── models.py
+## 👨‍💻 Author
 
-│   │   ├── views.py
+Hrishikesh Sharma
 
-│   │   ├── forms.py
+Final Year Project
 
-│   │   └── ...
+## 📄 License
 
-│   │
-
-│   ├── Service\_Provider/
-
-│   │   ├── models.py
-
-│   │   ├── views.py
-
-│   │   └── ...
-
-│   │
-
-│   └── Template/
-
-│       ├── htmls/
-
-│       └── images/
-
-│
-
-└── .gitignore
-
+This project was developed for academic and educational purposes.
